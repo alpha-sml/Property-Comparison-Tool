@@ -1,4 +1,4 @@
-// src/app/listings/page.js
+'use client';
 import React from 'react';
 import PropertyCard from '../../components/PropertyCard/PropertyCard';
 
@@ -9,7 +9,7 @@ const dummyProperties = [
     price: 450000,
     size: 2100,
     location: 'XYZ, ABC',
-    image: 'https://eg.placeholder.com/300x180'
+    image: 'https://via.placeholder.com/300x180'
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const dummyProperties = [
     price: 280000,
     size: 1300,
     location: 'QWE, VBN',
-    image: 'https://eg.placeholder.com/300x180'
+    image: 'https://via.placeholder.com/300x180'
   }
 ];
 
