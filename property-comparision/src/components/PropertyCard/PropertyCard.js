@@ -1,7 +1,7 @@
 import React from 'react';
 import './PropertyCard.css';
 
-const PropertyCard = ({ property }) => {
+const PropertyCard = ({ property, onAddToFavorites }) => {
   return (
     <div className="property-card">
       <img src={property.image} alt={property.title} className="property-image" />
@@ -10,6 +10,11 @@ const PropertyCard = ({ property }) => {
         <p>Price: ${property.price}</p>
         <p>Size: {property.size} sqft</p>
         <p>Location: {property.location}</p>
+        {onAddToFavorites && (
+          <button className="favorite-button" onClick={() => onAddToFavorites(property)}>
+            Add to Favorites
+          </button>
+        )}
       </div>
     </div>
   );

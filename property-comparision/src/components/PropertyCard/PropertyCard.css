@@ -16,4 +16,23 @@
 
 .property-details {
   margin-top: 10px;
+  color: #000000;
+}
+
+.property-details h3 {
+  color: #000000;
+}
+
+.favorite-button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.favorite-button:hover {
+  background-color: #005bb5;
 }

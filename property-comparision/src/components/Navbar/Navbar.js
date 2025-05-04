@@ -8,8 +8,9 @@ export default function Navbar() {
       <ul className="nav-links">
         <li><Link href="/">Home</Link></li>
         <li><Link href="/listings">Listings</Link></li>
-        <li><Link href="/compare">Compare</Link></li>
         <li><Link href="/favorites">Favorites</Link></li>
+        <li><Link href="/compare">Compare</Link></li>
+        
       </ul>
     </nav>
   );

@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import PropertyCard from '../../components/PropertyCard/PropertyCard';
 
 const dummyProperties = [
@@ -22,12 +22,28 @@ const dummyProperties = [
 ];
 
 const ListingsPage = () => {
+  const [favorites, setFavorites] = useState([]);
+
+  const handleAddToFavorites = (property) => {
+    const alreadyAdded = favorites.some(fav => fav.id === property.id);
+    if (!alreadyAdded) {
+      setFavorites([...favorites, property]);
+      console.log('Added to favorites:', property.title);
+    } else {
+      alert('This property is already in favorites.');
+    }
+  };
+
   return (
     <div style={{ padding: '20px' }}>
       <h1>Property Listings</h1>
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
         {dummyProperties.map(property => (
-          <PropertyCard key={property.id} property={property} />
+          <PropertyCard
+            key={property.id}
+            property={property}
+            onAddToFavorites={handleAddToFavorites}
+          />
         ))}
       </div>
     </div>
