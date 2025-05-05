@@ -1,0 +1,19 @@
+.featured-listings-container {
+    padding: 20px;
+}
+
+.featured-listings-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.featured-listings-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.featured-listings-scroll::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+}
