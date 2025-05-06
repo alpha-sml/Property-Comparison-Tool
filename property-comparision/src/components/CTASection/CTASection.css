@@ -1,0 +1,32 @@
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+    color: #222;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 24px;
+    color: #555;
+}
+
+.get-started-button {
+    padding: 10px 24px;
+    font-size: 16px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.get-started-button:hover {
+    background-color: #005bb5;
+}
