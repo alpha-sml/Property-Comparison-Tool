@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 import PropertyCard from '../../components/PropertyCard/PropertyCard';
 import { useSelection } from '../../context/SelectionContext';
 
@@ -29,15 +30,20 @@ const FavoritesPage = () => {
     <div style={{ padding: '20px' }}>
       <h1>Your Favorite Properties</h1>
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-        {favoriteProperties.map((property) => (
-          <PropertyCard
-            key={property.id}
-            property={property}
-            onSelectForCompare={toggleSelectProperty}
-            isSelected={selectedProperties.some((p) => p.id === property.id)}
-          />
+        {favoriteProperties.map(property => (
+          <div key={property.id} onClick={() => toggleSelectProperty(property)}>
+            <PropertyCard property={property} isSelected={selectedProperties.some(p => p.id === property.id)} />
+          </div>
         ))}
       </div>
+
+      {selectedProperties.length === 2 && (
+        <div style={{ marginTop: '20px' }}>
+          <Link href="/compare">
+            <button className="favorite-button">Compare Selected</button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
