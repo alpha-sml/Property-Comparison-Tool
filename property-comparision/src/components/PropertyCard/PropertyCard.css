@@ -36,3 +36,8 @@
 .favorite-button:hover {
   background-color: #005bb5;
 }
+
+.property-card.selected {
+  border: 2px solid #0070f3;
+  box-shadow: 0 0 10px rgba(0, 112, 243, 0.3);
+}
