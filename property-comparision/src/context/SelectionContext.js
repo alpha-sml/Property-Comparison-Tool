@@ -19,11 +19,14 @@ export const SelectionProvider = ({ children }) => {
     });
   };
 
+  const clearSelection = () => setSelectedProperties([]);
+
   return (
-    <SelectionContext.Provider value={{ selectedProperties, toggleSelectProperty }}>
+    <SelectionContext.Provider value={{ selectedProperties, toggleSelectProperty, clearSelection }}>
       {children}
     </SelectionContext.Provider>
   );
 };
+
 
 export const useSelection = () => useContext(SelectionContext);
