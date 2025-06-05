@@ -1,0 +1,9 @@
+.listings-page {
+  padding: 20px;
+}
+
+.property-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

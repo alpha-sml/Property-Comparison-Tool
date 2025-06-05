@@ -1,6 +1,7 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import PropertyCard from '../../components/PropertyCard/PropertyCard';
+import { useFavorites } from '../../context/FavoritesContext';
 
 const dummyProperties = [
   {
@@ -22,16 +23,11 @@ const dummyProperties = [
 ];
 
 const ListingsPage = () => {
-  const [favorites, setFavorites] = useState([]);
+  const { addToFavorites } = useFavorites();
 
   const handleAddToFavorites = (property) => {
-    const alreadyAdded = favorites.some(fav => fav.id === property.id);
-    if (!alreadyAdded) {
-      setFavorites([...favorites, property]);
-      console.log('Added to favorites:', property.title);
-    } else {
-      alert('This property is already in favorites.');
-    }
+    addToFavorites(property);
+    console.log('Added to favorites:', property.title);
   };
 
   return (

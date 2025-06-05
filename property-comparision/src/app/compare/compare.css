@@ -1,0 +1,68 @@
+.compare-page {
+  padding: 20px;
+}
+
+.compare-message {
+  color: #666;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.compare-page {
+  padding: 20px;
+}
+
+.compare-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.compare-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.back-button {
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.clear-button {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clear-button:hover {
+  background-color: #c53030;
+}
+
+.compare-message {
+  margin-top: 20px;
+  font-style: italic;
+}
+
