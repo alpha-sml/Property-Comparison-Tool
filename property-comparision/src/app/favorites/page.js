@@ -4,7 +4,7 @@ import PropertyCard from '../../components/PropertyCard/PropertyCard';
 import { useFavorites } from '../../context/FavoritesContext';
 
 const FavoritesPage = () => {
-  const { favoriteProperties } = useFavorites();
+  const { favoriteProperties, removeFromFavorites } = useFavorites();
 
   return (
     <div style={{ padding: '20px' }}>
@@ -14,7 +14,11 @@ const FavoritesPage = () => {
       ) : (
         <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
           {favoriteProperties.map(property => (
-            <PropertyCard key={property.id} property={property} />
+            <PropertyCard
+              key={property.id}
+              property={property}
+              onRemoveFromFavorites={removeFromFavorites}
+            />
           ))}
         </div>
       )}
