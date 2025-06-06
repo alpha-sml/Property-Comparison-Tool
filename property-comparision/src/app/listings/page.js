@@ -10,7 +10,7 @@ const dummyProperties = [
     price: 450000,
     size: 2100,
     location: 'XYZ, ABC',
-    image: 'https://via.placeholder.com/300x180'
+    image: 'https://via.placeholder.com/300x180',
   },
   {
     id: 2,
@@ -18,27 +18,32 @@ const dummyProperties = [
     price: 280000,
     size: 1300,
     location: 'QWE, VBN',
-    image: 'https://via.placeholder.com/300x180'
-  }
+    image: 'https://via.placeholder.com/300x180',
+  },
 ];
 
 const ListingsPage = () => {
-  const { addToFavorites } = useFavorites();
+  const { favoriteProperties, addToFavorites, removeFromFavorites } = useFavorites();
 
-  const handleAddToFavorites = (property) => {
-    addToFavorites(property);
-    console.log('Added to favorites:', property.title);
+  const toggleFavorite = (property) => {
+    const isAlreadyFavorite = favoriteProperties.some((fav) => fav.id === property.id);
+    if (isAlreadyFavorite) {
+      removeFromFavorites(property.id);
+    } else {
+      addToFavorites(property);
+    }
   };
 
   return (
     <div style={{ padding: '20px' }}>
       <h1>Property Listings</h1>
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-        {dummyProperties.map(property => (
+        {dummyProperties.map((property) => (
           <PropertyCard
             key={property.id}
             property={property}
-            onAddToFavorites={handleAddToFavorites}
+            isFavorite={favoriteProperties.some((fav) => fav.id === property.id)}
+            onToggleFavorite={() => toggleFavorite(property)}
           />
         ))}
       </div>
