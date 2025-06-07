@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import './CTASection.css';
 
-const HeroSection = () => {
+const CTASection = () => {
   return (
     <div className="hero">
       <h1>Compare Properties Easily</h1>
@@ -15,4 +15,5 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default CTASection;
+

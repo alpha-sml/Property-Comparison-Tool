@@ -31,3 +31,18 @@
 .hero-button:hover {
     background-color: #005bb5;
 }
+
+.hero-button:active {
+  transform: scale(0.97);
+}
+
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+}

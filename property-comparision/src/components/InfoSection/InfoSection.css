@@ -27,6 +27,12 @@
     margin-bottom: 8px;
     color: #0070f3;
   }
+
+  .step:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease;
+}
+
   
   @media (min-width: 768px) {
     .steps {

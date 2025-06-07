@@ -1,11 +1,34 @@
 .featured-listings-container {
-    padding: 20px;
-  }
-  
-  .featured-listings-scroll {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding-bottom: 10px;
-  }
-  
+  padding: 40px 20px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  margin: 20px;
+}
+
+.featured-listings-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.featured-listings-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+}
+
+.featured-listings-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.featured-listings-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.featured-listings-scroll > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
