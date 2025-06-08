@@ -3,12 +3,16 @@
   background-color: #fafafa;
   border-radius: 12px;
   margin: 20px;
+  text-align: center;
 }
 
 .featured-listings-container h2 {
-  font-size: 24px;
-  color: #333;
+  font-size: 28px;
+  color: var(--foreground);
   margin-bottom: 16px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 4px;
 }
 
 .featured-listings-scroll {
@@ -19,14 +23,6 @@
   scroll-snap-type: x mandatory;
 }
 
-.featured-listings-scroll::-webkit-scrollbar {
-  height: 8px;
-}
-
-.featured-listings-scroll::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 10px;
-}
 
 .featured-listings-scroll > * {
   scroll-snap-align: start;
