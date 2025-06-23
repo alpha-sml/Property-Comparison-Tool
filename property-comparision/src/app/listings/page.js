@@ -1,32 +1,22 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropertyCard from '../../components/PropertyCard/PropertyCard';
 import { useFavorites } from '../../context/FavoritesContext';
-
-const dummyProperties = [
-  {
-    id: 1,
-    title: 'Modern Family House',
-    price: 450000,
-    size: 2100,
-    location: 'XYZ, ABC',
-    image: 'https://via.placeholder.com/300x180',
-  },
-  {
-    id: 2,
-    title: 'Cozy Cottage',
-    price: 280000,
-    size: 1300,
-    location: 'QWE, VBN',
-    image: 'https://via.placeholder.com/300x180',
-  },
-];
+import './listings.css';
 
 const ListingsPage = () => {
   const { favoriteProperties, addToFavorites, removeFromFavorites } = useFavorites();
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    fetch('https://gist.githubusercontent.com/alpha-sml/6cebb505b603d89507b8e4f0d374246f/raw/a08529383029aa592347d09cc99afe9348dc267a/properties.json')
+      .then((res) => res.json())
+      .then((data) => setProperties(data))
+      .catch((error) => console.error('Error fetching properties:', error));
+  }, []);
 
   const toggleFavorite = (property) => {
-    const isAlreadyFavorite = favoriteProperties.some((fav) => fav.id === property.id);
+    const isAlreadyFavorite = favoriteProperties.filter(fav => fav.id === property.id).length > 0;
     if (isAlreadyFavorite) {
       removeFromFavorites(property.id);
     } else {
@@ -35,17 +25,21 @@ const ListingsPage = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="listings-page">
       <h1>Property Listings</h1>
-      <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-        {dummyProperties.map((property) => (
-          <PropertyCard
-            key={property.id}
-            property={property}
-            isFavorite={favoriteProperties.some((fav) => fav.id === property.id)}
-            onToggleFavorite={() => toggleFavorite(property)}
-          />
-        ))}
+      <div className="property-grid">
+        {properties.map((property) => {
+          const isFavorite = favoriteProperties.filter(fav => fav.id === property.id).length > 0;
+
+          return (
+            <PropertyCard
+              key={property.id}
+              property={property}
+              isFavorite={isFavorite}
+              onToggleFavorite={() => toggleFavorite(property)}
+            />
+          );
+        })}
       </div>
     </div>
   );

@@ -27,7 +27,9 @@ const ComparePage = () => {
       {selectedProperties.length === 2 ? (
         <ComparisonTable properties={selectedProperties} />
       ) : (
-        <p className="compare-message">Please select exactly two properties from Favorites to compare.</p>
+        <p className="compare-message">
+          Please select exactly two properties from Favorites to compare.
+        </p>
       )}
     </div>
   );

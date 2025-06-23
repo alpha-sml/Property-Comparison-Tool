@@ -1,35 +1,21 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import PropertyCard from '../PropertyCard/PropertyCard';
 import './FeaturedListings.css';
 
-const featuredProperties = [
-  {
-    id: 101,
-    title: 'Beachside Bungalow',
-    price: 520000,
-    size: 2000,
-    location: 'Santa Monica, CA',
-    image: 'https://via.placeholder.com/300x180'
-  },
-  {
-    id: 102,
-    title: 'Urban Loft',
-    price: 610000,
-    size: 1800,
-    location: 'Brooklyn, NY',
-    image: 'https://via.placeholder.com/300x180'
-  },
-  {
-    id: 103,
-    title: 'Mountain Cabin',
-    price: 420000,
-    size: 1600,
-    location: 'Aspen, CO',
-    image: 'https://via.placeholder.com/300x180'
-  }
-];
-
 const FeaturedListings = () => {
+  const [featuredProperties, setFeaturedProperties] = useState([]);
+
+  useEffect(() => {
+    fetch('https://gist.githubusercontent.com/alpha-sml/6cebb505b603d89507b8e4f0d374246f/raw/a08529383029aa592347d09cc99afe9348dc267a/properties.json')
+      .then((res) => res.json())
+      .then((data) => {
+        const topThree = data.filter((_, index) => index < 3);
+        setFeaturedProperties(topThree);
+      })
+      .catch((err) => console.error('Failed to fetch featured listings:', err));
+  }, []);
+
   return (
     <div className="featured-listings-container">
       <h2>Featured Listings</h2>
