@@ -17,7 +17,7 @@
 }
 
 .comparison-table th {
-  background-color: #00AAA9;
+  background-color: var(--accent);
   color: #fff;
   font-weight: 600;
   text-transform: uppercase;
@@ -30,7 +30,8 @@
 
 .comparison-table td {
   font-size: 15px;
-  color: #333;
+  color: var(--foreground, #333);
+  vertical-align: middle;
 }
 
 .comparison-image {
@@ -38,10 +39,13 @@
   max-width: 250px;
   height: auto;
   border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .comparison-table td.highlight {
   background-color: #e6f9e8;
   font-weight: bold;
   color: #1a7f37;
+  border-left: 4px solid #1a7f37;
 }

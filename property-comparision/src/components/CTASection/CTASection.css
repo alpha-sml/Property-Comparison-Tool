@@ -1,22 +1,24 @@
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: #f9f9f9;
+.cta-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  margin: 20px auto;
 }
 
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 16px;
-    color: #222;
+.cta-section h2 {
+  font-size: 30px;
+  margin-bottom: 16px;
+  color: var(--foreground);
 }
 
-.hero p {
-    font-size: 18px;
-    margin-bottom: 24px;
-    color: #555;
+.cta-section p {
+  font-size: 18px;
+  margin-bottom: 24px;
+  color: #555;
 }
 
-.get-started-button {
+.cta-button {
   padding: 10px 24px;
   font-size: 16px;
   background-color: var(--accent);
@@ -27,6 +29,10 @@
   transition: background-color 0.2s ease;
 }
 
-.get-started-button:hover {
+.cta-button:hover {
   background-color: #008b8a;
+}
+
+.cta-button:active {
+  transform: scale(0.97);
 }

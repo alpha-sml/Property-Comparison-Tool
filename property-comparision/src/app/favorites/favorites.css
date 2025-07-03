@@ -1,5 +1,19 @@
 .favorites-page {
   padding: 20px;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.favorites-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.favorites-empty {
+  font-size: 16px;
+  color: #777;
+  margin-top: 20px;
 }
 
 .favorites-list {
@@ -8,27 +22,18 @@
   gap: 20px;
 }
 
-.selectable-card {
-  cursor: pointer;
-  transition: transform 0.2s, border 0.2s;
-}
-
-.selectable-card:hover {
-  transform: scale(1.02);
-}
-
-.selectable-card.selected {
-  border: 2px solid #0070f3;
-  border-radius: 8px;
-}
-
 .compare-button {
   display: inline-block;
   margin-top: 30px;
-  background-color: #0070f3;
+  background-color: #00AAA9;
   color: white;
   padding: 10px 20px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.compare-button:hover {
+  background-color: #008f8e;
 }

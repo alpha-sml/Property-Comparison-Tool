@@ -9,37 +9,31 @@ const ListingsPage = () => {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
-    fetch('https://gist.githubusercontent.com/alpha-sml/6cebb505b603d89507b8e4f0d374246f/raw/e39619f4021b41eecbaa1b8c764717a168a10707/properties.json')
+    fetch(
+      'https://gist.githubusercontent.com/alpha-sml/6cebb505b603d89507b8e4f0d374246f/raw/e39619f4021b41eecbaa1b8c764717a168a10707/properties.json'
+    )
       .then((res) => res.json())
       .then((data) => setProperties(data))
-      .catch((error) => console.error('Error fetching properties:', error));
+      .catch((err) => console.error('Failed to fetch properties:', err));
   }, []);
 
   const toggleFavorite = (property) => {
-    const isAlreadyFavorite = favoriteProperties.filter(fav => fav.id === property.id).length > 0;
-    if (isAlreadyFavorite) {
-      removeFromFavorites(property.id);
-    } else {
-      addToFavorites(property);
-    }
+    const isFavorite = favoriteProperties.filter((fav) => fav.id === property.id).length > 0;
+    isFavorite ? removeFromFavorites(property.id) : addToFavorites(property);
   };
 
   return (
     <div className="listings-page">
-      <h1>Property Listings</h1>
+      <h1 className="listings-title">Property Listings</h1>
       <div className="property-grid">
-        {properties.map((property) => {
-          const isFavorite = favoriteProperties.filter(fav => fav.id === property.id).length > 0;
-
-          return (
-            <PropertyCard
-              key={property.id}
-              property={property}
-              isFavorite={isFavorite}
-              onToggleFavorite={() => toggleFavorite(property)}
-            />
-          );
-        })}
+        {properties.map((property) => (
+          <PropertyCard
+            key={property.id}
+            property={property}
+            isFavorite={favoriteProperties.filter((fav) => fav.id === property.id).length > 0}
+            onToggleFavorite={() => toggleFavorite(property)}
+          />
+        ))}
       </div>
     </div>
   );

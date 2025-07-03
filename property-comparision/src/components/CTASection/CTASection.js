@@ -5,15 +5,14 @@ import './CTASection.css';
 
 const CTASection = () => {
   return (
-    <div className="hero">
-      <h1>Compare Properties Easily</h1>
+    <section className="cta-section">
+      <h2>Compare Properties Easily</h2>
       <p>Find the best property by comparing listings side by side.</p>
       <Link href="/listings">
-        <button className="get-started-button">Get Started</button>
+        <button className="cta-button">Get Started</button>
       </Link>
-    </div>
+    </section>
   );
 };
 
 export default CTASection;
-

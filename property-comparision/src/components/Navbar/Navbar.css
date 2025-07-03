@@ -1,4 +1,7 @@
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,6 +9,7 @@
   padding: 1rem 2rem;
   border-bottom: 1px solid #e5e7eb;
   color: var(--foreground);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .logo {
@@ -25,8 +29,32 @@
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
+  padding: 6px 8px;
+  border-radius: 4px;
 }
 
 .nav-links a:hover {
   color: #00AAA9;
+  background-color: rgba(0, 170, 169, 0.1);
+}
+
+.nav-links a.active {
+  color: #00AAA9;
+  font-weight: 600;
+  border-bottom: 2px solid #00AAA9;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.95rem;
+  }
 }

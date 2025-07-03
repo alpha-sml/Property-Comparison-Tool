@@ -23,7 +23,6 @@
   scroll-snap-type: x mandatory;
 }
 
-
 .featured-listings-scroll > * {
   scroll-snap-align: start;
   flex: 0 0 auto;

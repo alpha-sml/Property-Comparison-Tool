@@ -15,14 +15,14 @@ const FavoritesPage = () => {
 
   return (
     <div className="favorites-page">
-      <h1>Your Favorite Properties</h1>
+      <h1 className="favorites-title">Your Favorite Properties</h1>
 
       {favoriteProperties.length === 0 ? (
-        <p>No favorites yet.</p>
+        <p className="favorites-empty">No favorites yet.</p>
       ) : (
         <>
           <div className="favorites-list">
-            {favoriteProperties.map(property => (
+            {favoriteProperties.map((property) => (
               <PropertyCard
                 key={property.id}
                 property={property}

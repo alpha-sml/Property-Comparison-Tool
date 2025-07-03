@@ -1,15 +1,25 @@
 import React from 'react';
 import './ComparisonTable.css';
 
-function ComparisonTable(props) {
-  const properties = props.properties;
+const fields = [
+  { label: 'Price', key: 'price', compare: (a, b) => a < b },
+  { label: 'Size', key: 'size', compare: (a, b) => a > b, unit: 'sqft' },
+  { label: 'Bedrooms', key: 'bedrooms', compare: (a, b) => a > b },
+  { label: 'Bathrooms', key: 'bathrooms', compare: (a, b) => a > b },
+  { label: 'Year Built', key: 'yearBuilt', compare: (a, b) => a > b },
+  { label: 'Property Type', key: 'propertyType' },
+  { label: 'Location', key: 'location' },
+];
 
-  if (!properties || properties.length !== 2) {
-    return null;
-  }
+const ComparisonTable = ({ properties }) => {
+  if (!properties || properties.length !== 2) return null;
 
-  const first = properties[0];
-  const second = properties[1];
+  const [first, second] = properties;
+
+  const getHighlight = (field, val1, val2) => {
+    if (!field.compare) return [false, false];
+    return [field.compare(val1, val2), field.compare(val2, val1)];
+  };
 
   return (
     <table className="comparison-table">
@@ -23,14 +33,14 @@ function ComparisonTable(props) {
           <td>Image</td>
           <td>
             <img
-              src={first.image ? first.image : '/placeholder.jpg'}
+              src={first.image || '/placeholder.jpg'}
               alt={first.title}
               className="comparison-image"
             />
           </td>
           <td>
             <img
-              src={second.image ? second.image : '/placeholder.jpg'}
+              src={second.image || '/placeholder.jpg'}
               alt={second.title}
               className="comparison-image"
             />
@@ -38,44 +48,26 @@ function ComparisonTable(props) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Price</td>
-          <td className={first.price < second.price ? 'highlight' : ''}>${first.price}</td>
-          <td className={second.price < first.price ? 'highlight' : ''}>${second.price}</td>
-        </tr>
-        <tr>
-          <td>Size</td>
-          <td className={first.size > second.size ? 'highlight' : ''}>{first.size} sqft</td>
-          <td className={second.size > first.size ? 'highlight' : ''}>{second.size} sqft</td>
-        </tr>
-        <tr>
-          <td>Bedrooms</td>
-          <td className={first.bedrooms > second.bedrooms ? 'highlight' : ''}>{first.bedrooms}</td>
-          <td className={second.bedrooms > first.bedrooms ? 'highlight' : ''}>{second.bedrooms}</td>
-        </tr>
-        <tr>
-          <td>Bathrooms</td>
-          <td className={first.bathrooms > second.bathrooms ? 'highlight' : ''}>{first.bathrooms}</td>
-          <td className={second.bathrooms > first.bathrooms ? 'highlight' : ''}>{second.bathrooms}</td>
-        </tr>
-        <tr>
-          <td>Year Built</td>
-          <td className={first.yearBuilt > second.yearBuilt ? 'highlight' : ''}>{first.yearBuilt}</td>
-          <td className={second.yearBuilt > first.yearBuilt ? 'highlight' : ''}>{second.yearBuilt}</td>
-        </tr>
-        <tr>
-          <td>Property Type</td>
-          <td>{first.propertyType}</td>
-          <td>{second.propertyType}</td>
-        </tr>
-        <tr>
-          <td>Location</td>
-          <td>{first.location}</td>
-          <td>{second.location}</td>
-        </tr>
+        {fields.map((field) => {
+          const val1 = first[field.key];
+          const val2 = second[field.key];
+          const [highlight1, highlight2] = getHighlight(field, val1, val2);
+
+          return (
+            <tr key={field.key}>
+              <td>{field.label}</td>
+              <td className={highlight1 ? 'highlight' : ''}>
+                {val1} {field.unit || ''}
+              </td>
+              <td className={highlight2 ? 'highlight' : ''}>
+                {val2} {field.unit || ''}
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
-}
+};
 
 export default ComparisonTable;
