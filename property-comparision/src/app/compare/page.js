@@ -1,23 +1,28 @@
 'use client';
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import ComparisonTable from '../../components/ComparisonTable/ComparisonTable';
 import { useSelection } from '../../context/SelectionContext';
 import './compare.css';
-import Link from 'next/link';
 
 const ComparePage = () => {
+  const router = useRouter();
   const { selectedProperties, clearSelection } = useSelection();
+
+  const handleBack = () => {
+    router.push('/favorites');
+  };
 
   return (
     <div className="compare-page">
       <div className="compare-header">
         <h1>Compare Properties</h1>
         <div className="compare-actions">
-          <Link href="/favorites" className="back-button">
+          <button onClick={handleBack} className="button back-button">
             ← Back to Favorites
-          </Link>
+          </button>
           {selectedProperties.length > 0 && (
-            <button onClick={clearSelection} className="clear-button">
+            <button onClick={clearSelection} className="button clear-button">
               Clear Selection
             </button>
           )}

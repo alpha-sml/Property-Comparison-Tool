@@ -9,7 +9,7 @@ const ListingsPage = () => {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
-    fetch('https://gist.githubusercontent.com/alpha-sml/6cebb505b603d89507b8e4f0d374246f/raw/a08529383029aa592347d09cc99afe9348dc267a/properties.json')
+    fetch('https://gist.githubusercontent.com/alpha-sml/6cebb505b603d89507b8e4f0d374246f/raw/e39619f4021b41eecbaa1b8c764717a168a10707/properties.json')
       .then((res) => res.json())
       .then((data) => setProperties(data))
       .catch((error) => console.error('Error fetching properties:', error));

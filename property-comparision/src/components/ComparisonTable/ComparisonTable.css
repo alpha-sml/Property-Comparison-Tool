@@ -2,16 +2,46 @@
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
 }
 
 .comparison-table th,
 .comparison-table td {
-  border: 1px solid #ccc;
-  padding: 12px;
+  padding: 16px;
   text-align: left;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .comparison-table th {
-  background-color: #f5f5f5;
+  background-color: #00AAA9;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.comparison-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.comparison-table td {
+  font-size: 15px;
+  color: #333;
+}
+
+.comparison-image {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.comparison-table td.highlight {
+  background-color: #e6f9e8;
   font-weight: bold;
+  color: #1a7f37;
 }

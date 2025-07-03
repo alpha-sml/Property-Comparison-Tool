@@ -23,15 +23,23 @@
 }
 
 .back-button {
+  background-color: transparent;
   color: var(--accent);
-  text-decoration: none;
+  border: 2px solid var(--accent);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .back-button:hover {
-  text-decoration: underline;
+  background-color: var(--accent);
+  color: white;
 }
 
+/* Clear Selection Button */
 .clear-button {
   background-color: #e53e3e;
   color: white;
