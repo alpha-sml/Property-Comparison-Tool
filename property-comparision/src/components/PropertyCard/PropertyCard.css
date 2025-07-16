@@ -13,12 +13,12 @@
 }
 
 .property-card.selected {
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 12px rgba(0, 170, 169, 0.4);
+  border: 2px solid #B87333;
+  box-shadow: 0 0 12px rgba(184, 115, 51, 0.4);
 }
 
 .property-card:focus-within {
-  outline: 2px dashed var(--accent);
+  outline: 2px dashed #B87333;
   outline-offset: 4px;
 }
 
@@ -72,12 +72,12 @@
 }
 
 .favorite-button {
-  background-color: var(--accent);
+  background-color: #B87333;
   color: #fff;
 }
 
 .favorite-button:hover {
-  background-color: #008b8a;
+  background-color: #A35F2C;
   transform: translateY(-1px);
 }
 

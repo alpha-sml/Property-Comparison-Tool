@@ -1,29 +1,60 @@
 .featured-listings-container {
-  padding: 40px 20px;
-  background-color: #fafafa;
+  padding: 60px 20px;
+  background: linear-gradient(to right, #f9f9f9, #f0f4f8);
   border-radius: 12px;
-  margin: 20px;
+  margin: 40px 20px;
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
 
 .featured-listings-container h2 {
   font-size: 28px;
   color: var(--foreground);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   border-bottom: 2px solid var(--accent);
   display: inline-block;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 
 .featured-listings-scroll {
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding: 10px 0;
   scroll-snap-type: x mandatory;
+  scroll-padding: 10px;
 }
 
 .featured-listings-scroll > * {
   scroll-snap-align: start;
   flex: 0 0 auto;
+  transition: transform 0.2s ease;
+}
+
+.featured-listings-scroll > *:hover {
+  transform: scale(1.02);
+}
+
+.featured-listings-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.featured-listings-scroll::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 10px;
+}
+
+.featured-listings-scroll::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .featured-listings-container {
+    padding: 40px 10px;
+  }
+
+  .featured-listings-scroll {
+    gap: 16px;
+  }
 }

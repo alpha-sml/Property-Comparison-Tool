@@ -46,7 +46,7 @@
 }
 
 .back-button:hover {
-  background-color: var(--accent);
+  background-color: var(--accent-hover);
   color: white;
 }
 

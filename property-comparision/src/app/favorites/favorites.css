@@ -40,7 +40,7 @@
 }
 
 .compare-button:hover {
-  background-color: #008f8e;
+  background-color: var(--accent-hover);
   transform: translateY(-1px);
 }
 

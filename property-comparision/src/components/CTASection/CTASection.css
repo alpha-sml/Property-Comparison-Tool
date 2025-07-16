@@ -1,21 +1,42 @@
 .cta-section {
+  position: relative;
   text-align: center;
   padding: 60px 20px;
-  background-color: #f9f9f9;
+  background-image: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  color: white;
   border-radius: 12px;
-  margin: 20px auto;
+  margin: 20px;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.cta-section h2,
+.cta-section p,
+.cta-button {
+  position: relative;
+  z-index: 1;
 }
 
 .cta-section h2 {
   font-size: 30px;
   margin-bottom: 16px;
-  color: var(--foreground);
+  color: white;
 }
 
 .cta-section p {
   font-size: 18px;
   margin-bottom: 24px;
-  color: #555;
+  color: #f1f1f1;
 }
 
 .cta-button {
@@ -26,11 +47,12 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .cta-button:hover {
-  background-color: #008b8a;
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
 }
 
 .cta-button:active {

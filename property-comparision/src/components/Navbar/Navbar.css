@@ -15,7 +15,7 @@
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #00AAA9;
+  color: #B87333;
 }
 
 .nav-links {
@@ -37,20 +37,20 @@
 }
 
 .nav-links a:hover {
-  color: #00AAA9;
-  background-color: rgba(0, 170, 169, 0.1);
+  color: #B87333;
+  background-color: rgba(184, 115, 51, 0.1);
 }
 
 .nav-links a.active {
-  color: #00AAA9;
+  color: #B87333;
   font-weight: 600;
-  border-bottom: 2px solid #00AAA9;
+  border-bottom: 2px solid #B87333;
 }
 
 .logout-button {
   background-color: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
+  border: 1px solid #B87333;
+  color: #B87333;
   padding: 6px 8px;
   border-radius: 4px;
   font-size: 14px;
@@ -59,7 +59,7 @@
 }
 
 .logout-button:hover {
-  background-color: var(--accent);
+  background-color: #A35F2C;
   color: white;
 }
 

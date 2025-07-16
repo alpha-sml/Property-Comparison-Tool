@@ -1,7 +1,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --accent: #00AAA9;
+  --accent: #B87333;
+  --accent-hover: #A35F2C;
   --font-sans: Arial, Helvetica, sans-serif;
 }
 
