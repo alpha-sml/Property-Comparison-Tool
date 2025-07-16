@@ -12,9 +12,11 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <FavoritesProvider>
             <SelectionProvider>
-              <Navbar />
-              <main>{children}</main>
-              <Footer />
+              <div className="page-wrapper">
+                <Navbar />
+                <main className="page-content">{children}</main>
+                <Footer />
+              </div>
             </SelectionProvider>
           </FavoritesProvider>
         </AuthProvider>
