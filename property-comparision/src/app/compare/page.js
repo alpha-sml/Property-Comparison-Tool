@@ -3,6 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import ComparisonTable from '../../components/ComparisonTable/ComparisonTable';
 import { useSelection } from '../../context/SelectionContext';
+import ProtectedRoute from '../../components/ProtectedRoute'
 import './compare.css';
 
 const ComparePage = () => {
@@ -14,7 +15,8 @@ const ComparePage = () => {
   };
 
   return (
-    <div className="compare-page">
+    <ProtectedRoute>
+      <div className="compare-page">
       <div className="compare-header">
         <h1>Compare Properties</h1>
         <div className="compare-actions">
@@ -37,6 +39,8 @@ const ComparePage = () => {
         </p>
       )}
     </div>
+    </ProtectedRoute>
+    
   );
 };
 

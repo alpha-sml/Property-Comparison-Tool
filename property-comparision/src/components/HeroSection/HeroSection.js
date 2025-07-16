@@ -1,5 +1,6 @@
 import React from 'react';
 import './HeroSection.css';
+import Link from 'next/link';
 
 const HeroSection = () => (
   <section className="hero-section">
@@ -7,7 +8,9 @@ const HeroSection = () => (
     <p className="hero-description">
       Easily compare properties by price, size, and location to make informed decisions.
     </p>
-    <button className="hero-button">Get Started</button>
+    <Link href="/listings">
+      <button className="hero-button">Explore Listings</button>
+    </Link>
   </section>
 );
 

@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import PropertyCard from '../../components/PropertyCard/PropertyCard';
+import ProtectedRoute from '../../components/ProtectedRoute'
 import { useFavorites } from '../../context/FavoritesContext';
 import { useSelection } from '../../context/SelectionContext';
 import Link from 'next/link';
@@ -14,7 +15,8 @@ const FavoritesPage = () => {
     selectedProperties.filter(p => p.id === property.id).length > 0;
 
   return (
-    <div className="favorites-page">
+    <ProtectedRoute>
+      <div className="favorites-page">
       <h1 className="favorites-title">Your Favorite Properties</h1>
 
       {favoriteProperties.length === 0 ? (
@@ -41,6 +43,8 @@ const FavoritesPage = () => {
         </>
       )}
     </div>
+    </ProtectedRoute>
+    
   );
 };
 
