@@ -6,10 +6,10 @@ const PropertyCard = ({
   isFavorite,
   onToggleFavorite,
   onSelect,
-  isSelected
+  isSelected,
 }) => {
-  const imageSrc = property.image ? property.image : '/placeholder.jpg';
-  const imageAlt = property.title ? property.title : 'Property image';
+  const imageSrc = property.image || '/placeholder.jpg';
+  const imageAlt = property.title || 'Property image';
 
   return (
     <div className={`property-card ${isSelected ? 'selected' : ''}`}>
@@ -25,7 +25,7 @@ const PropertyCard = ({
         <p><strong>Location:</strong> {property.location}</p>
 
         <div className="card-actions">
-          {onToggleFavorite ? (
+          {onToggleFavorite && (
             <button
               className="favorite-button"
               onClick={() => onToggleFavorite(property)}
@@ -33,16 +33,16 @@ const PropertyCard = ({
             >
               {isFavorite ? '★ Remove Favorite' : '☆ Add to Favorites'}
             </button>
-          ) : null}
+          )}
 
-          {onSelect ? (
+          {onSelect && (
             <button
               className="select-button"
               onClick={() => onSelect(property)}
             >
               {isSelected ? '✓ Selected' : 'Select to Compare'}
             </button>
-          ) : null}
+          )}
         </div>
       </div>
     </div>

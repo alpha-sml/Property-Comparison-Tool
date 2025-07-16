@@ -1,39 +1,60 @@
 .favorites-page {
-  padding: 20px;
+  padding: 24px;
   background-color: var(--background);
   color: var(--foreground);
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .favorites-title {
   font-size: 28px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  color: var(--foreground);
 }
 
 .favorites-empty {
   font-size: 16px;
   color: #777;
-  margin-top: 20px;
+  text-align: center;
+  margin-top: 40px;
 }
 
 .favorites-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: flex-start;
 }
 
 .compare-button {
   display: inline-block;
-  margin-top: 30px;
-  background-color: #00AAA9;
+  margin-top: 32px;
+  background-color: var(--accent);
   color: white;
   padding: 10px 20px;
   border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .compare-button:hover {
   background-color: #008f8e;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .favorites-title {
+    font-size: 24px;
+  }
+
+  .favorites-list {
+    justify-content: center;
+  }
+
+  .compare-button {
+    width: 100%;
+    text-align: center;
+  }
 }

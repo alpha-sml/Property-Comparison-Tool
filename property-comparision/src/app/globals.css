@@ -14,10 +14,16 @@ html, body {
   font-family: var(--font-sans);
 }
 
-.page-wrapper {
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .page-content {
