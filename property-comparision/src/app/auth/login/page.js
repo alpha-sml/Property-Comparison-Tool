@@ -90,7 +90,7 @@ export default function LoginPage() {
         {error && <p className="auth-message">{error}</p>}
 
         <p className="auth-switch">
-          Don't have an account? <Link href="/auth/signup">Sign Up</Link>
+          {"Don't have an account?"} <Link href="/auth/signup">Sign Up</Link>
         </p>
       </form>
     </div>
