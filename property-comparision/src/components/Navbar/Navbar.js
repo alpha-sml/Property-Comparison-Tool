@@ -1,25 +1,16 @@
 'use client';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useAuth } from '../../context/AuthContext';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase/config';
 import './Navbar.css';
 
 export default function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
-  const { user } = useAuth();
-
-  const handleLogout = async () => {
-    await signOut(auth);
-    router.push('/auth/login');
-  };
+  const { user, logout } = useAuth();
 
   return (
     <nav className="navbar">
-      <h1 className="logo">PropertyTool</h1>
-
+      <h1 className="logo"><Link href="/">PropertyTool</Link></h1>
       <ul className="nav-links">
         <li>
           <Link href="/" className={pathname === '/' ? 'active' : ''}>Home</Link>
@@ -35,9 +26,12 @@ export default function Navbar() {
         </li>
 
         {user ? (
-          <li>
-            <button onClick={handleLogout} className="logout-button">Logout</button>
-          </li>
+          <>
+            <li className="user-email">{user.email || 'Guest'}</li>
+            <li>
+              <button className="logout-button" onClick={logout}>Logout</button>
+            </li>
+          </>
         ) : (
           <li>
             <Link href="/auth/login" className={pathname === '/auth/login' ? 'active' : ''}>Login</Link>
