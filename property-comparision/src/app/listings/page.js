@@ -10,7 +10,7 @@ const ListingsPage = () => {
 
   useEffect(() => {
     fetch(
-      'https://gist.githubusercontent.com/alpha-sml/6cebb505b603d89507b8e4f0d374246f/raw/e39619f4021b41eecbaa1b8c764717a168a10707/properties.json'
+      'https://gist.githubusercontent.com/alpha-sml/6cebb505b603d89507b8e4f0d374246f/raw/014b714c50eef336f348275ab315212d70d98a0c/properties.json'
     )
       .then((res) => res.json())
       .then((data) => setProperties(data))
