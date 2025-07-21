@@ -61,7 +61,6 @@
 .selection-count {
   font-weight: 600;
   color: #007bff;
-  margin-top: 8px !important;
 }
 
 @media (max-width: 600px) {
