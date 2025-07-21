@@ -23,6 +23,14 @@ const FavoritesPage = () => {
           <p className="favorites-empty">No favorites yet.</p>
         ) : (
           <>
+            <div className="comparison-instructions">
+              <p>Select any 2 properties to compare them side by side</p>
+              <p className="selection-count">
+                {selectedProperties.length === 0 && "No properties selected"}
+                {selectedProperties.length === 1 && "1 property selected - select 1 more to compare"}
+                {selectedProperties.length === 2 && "2 properties selected - ready to compare!"}
+              </p>
+            </div>
             <div className="favorites-list">
               {favoriteProperties.map((property) => (
                 <PropertyCard
